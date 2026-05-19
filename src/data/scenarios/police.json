@@ -1,0 +1,40 @@
+[
+  {
+    "id": "police-stop-basic-cooperation",
+    "title": "Police Stop: Calm First Response",
+    "category": "police-emergency",
+    "difficulty": "intermediate",
+    "riskLevel": "high",
+    "estimatedMinutes": 10,
+    "situation": "An officer stops you and asks what you are doing in the area late at night.",
+    "userGoal": "Give short factual answers and ask for clarification when needed.",
+    "pressureQuestion": "Why are you here right now?",
+    "contextNotes": ["Language practice only.", "Do not argue in this speaking drill.", "Focus on clear communication."],
+    "avoidSaying": ["I can say anything and leave.", "You can't ask me that."],
+    "safePhrases": ["I'm walking home from work on 8th Avenue.", "Could you clarify what details you need from me?"],
+    "betterAnswer": "I'm heading home from my shift. I live two blocks away, and I can explain my route if that helps.",
+    "skillFocus": ["factual statements", "neutral tone", "clarifying needs"],
+    "riskTags": ["authority-pressure", "emotional-escalation-risk"],
+    "selfCheckRubricIds": ["tone-02", "clarity-01"],
+    "disclaimerLevel": "legal-sensitive"
+  },
+  {
+    "id": "police-minor-accident-witness",
+    "title": "Minor Traffic Accident: Witness Statement",
+    "category": "police-emergency",
+    "difficulty": "advanced",
+    "riskLevel": "medium",
+    "estimatedMinutes": 11,
+    "situation": "You witnessed a low-speed bike and car collision and need to explain what you saw.",
+    "userGoal": "Describe sequence and location clearly without guessing unknown details.",
+    "pressureQuestion": "What exactly did you see first?",
+    "contextNotes": ["Language practice only.", "State what you observed, not assumptions.", "Use time markers."],
+    "avoidSaying": ["I didn't see it, but the driver was wrong.", "Maybe the cyclist was drunk."],
+    "safePhrases": ["I saw the bike enter the crosswalk at the green light.", "I can't confirm speed, but the impact looked minor."],
+    "betterAnswer": "First I heard a horn, then I saw the bicycle in the crosswalk and the car braking. I can point to where each person was standing after the impact.",
+    "skillFocus": ["sequencing", "neutral reporting", "precision under stress"],
+    "riskTags": ["memory-pressure", "ambiguity"],
+    "selfCheckRubricIds": ["accuracy-03", "structure-02"],
+    "disclaimerLevel": "legal-sensitive"
+  }
+]
