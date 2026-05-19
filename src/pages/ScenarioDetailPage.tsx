@@ -1,8 +1,11 @@
+import { useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import selfCheckRubric from '../data/rubrics/self-check-rubric.json'
+import { usePracticeRecords } from '../hooks/usePracticeRecords'
 import { getRelatedScenarios, getScenarioById } from '../lib/scenarioUtils'
 import type { RubricItem } from '../types/rubric'
 import { AnswerInput } from '../components/scenario/AnswerInput'
+import { AudioRecorder } from '../components/audio/AudioRecorder'
 import { BetterAnswerPanel } from '../components/scenario/BetterAnswerPanel'
 import { ContextNotesPanel } from '../components/scenario/ContextNotesPanel'
 import { DontSayThatPanel } from '../components/scenario/DontSayThatPanel'
@@ -16,6 +19,11 @@ const rubricItems = selfCheckRubric as RubricItem[]
 export function ScenarioDetailPage() {
   const { scenarioId = '' } = useParams()
   const scenario = getScenarioById(scenarioId)
+  const { addRecord } = usePracticeRecords()
+  const [answer, setAnswer] = useState('')
+  const [scores, setScores] = useState<Record<string, number>>({})
+  const [saveMessage, setSaveMessage] = useState('')
+  const [usedAudio, setUsedAudio] = useState(false)
 
   if (!scenario) {
     return (
@@ -30,6 +38,28 @@ export function ScenarioDetailPage() {
   }
 
   const related = getRelatedScenarios(scenario.id, 3)
+  const canSave = answer.trim().length > 0
+
+  const handleSavePractice = () => {
+    const selfScores = Object.entries(scores).map(([rubricId, score]) => ({ rubricId, score }))
+    const weaknessTags = selfScores
+      .filter((item) => item.score <= 2)
+      .map((item) => rubricItems.find((rubric) => rubric.id === item.rubricId)?.label ?? item.rubricId)
+
+    addRecord({
+      scenarioId: scenario.id,
+      scenarioTitle: scenario.title,
+      category: scenario.category,
+      difficulty: scenario.difficulty,
+      riskLevel: scenario.riskLevel,
+      writtenAnswer: answer,
+      selfScores,
+      weaknessTags,
+      usedAudio,
+    })
+
+    setSaveMessage('Practice saved locally.')
+  }
 
   return (
     <section className="space-y-6">
@@ -50,7 +80,8 @@ export function ScenarioDetailPage() {
       </section>
 
       <DrillQuestion question={scenario.pressureQuestion} />
-      <AnswerInput />
+      <AnswerInput value={answer} onChange={setAnswer} />
+      <AudioRecorder onRecordingAvailable={setUsedAudio} />
 
       <section className="grid gap-4 lg:grid-cols-3">
         <SafePhrasePanel safePhrases={scenario.safePhrases} />
@@ -58,7 +89,21 @@ export function ScenarioDetailPage() {
         <BetterAnswerPanel betterAnswer={scenario.betterAnswer} />
       </section>
 
-      <SelfCheckPanel items={rubricItems} />
+      <section className="space-y-3">
+        <SelfCheckPanel items={rubricItems} value={scores} onChange={setScores} />
+        <div className="flex flex-wrap items-center gap-3">
+          <button
+            type="button"
+            disabled={!canSave}
+            onClick={handleSavePractice}
+            className="rounded-md border border-[--color-line] px-4 py-2 text-sm font-medium disabled:cursor-not-allowed disabled:opacity-50"
+          >
+            Save Practice
+          </button>
+          {saveMessage ? <p className="text-sm text-emerald-300">{saveMessage}</p> : null}
+        </div>
+        <p className="text-xs text-[--color-text-secondary]">Saved records stay only in this browser and are not sent to As If.</p>
+      </section>
 
       {related.length > 0 ? (
         <section className="rounded-lg border border-[--color-line] bg-[--color-card] p-5 space-y-3">

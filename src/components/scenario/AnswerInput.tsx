@@ -1,8 +1,4 @@
-import { useState } from 'react'
-
-export function AnswerInput() {
-  const [value, setValue] = useState('')
-
+export function AnswerInput({ value, onChange }: { value: string; onChange: (value: string) => void }) {
   return (
     <section className="rounded-lg border border-[--color-line] bg-[--color-card] p-5 space-y-3">
       <label htmlFor="answer-input" className="text-sm font-semibold text-[--color-text-primary]">
@@ -11,7 +7,7 @@ export function AnswerInput() {
       <textarea
         id="answer-input"
         value={value}
-        onChange={(event) => setValue(event.target.value)}
+        onChange={(event) => onChange(event.target.value)}
         rows={6}
         className="w-full rounded-md border border-[--color-line] bg-[--color-bg] px-3 py-2 text-sm text-[--color-text-primary]"
         placeholder="Write your response here..."
@@ -23,7 +19,7 @@ export function AnswerInput() {
         <span>{value.length} characters</span>
         <button
           type="button"
-          onClick={() => setValue('')}
+          onClick={() => onChange('')}
           className="rounded-md border border-[--color-line] px-2 py-1 hover:text-[--color-text-primary]"
         >
           Clear

@@ -1,6 +1,7 @@
 # Data Schema (Scenario Library + Drill)
 
 This project currently uses static JSON data for frontend language-practice scenarios and self-check rubrics.
+Practice records are stored locally in each browser via `localStorage` (no server sync).
 
 ## Scenario
 
@@ -40,6 +41,35 @@ type RubricItem = {
   guidingQuestion: string
 }
 ```
+
+## PracticeRecord (local only)
+
+```ts
+type PracticeRecord = {
+  id: string
+  scenarioId: string
+  scenarioTitle: string
+  category: ScenarioCategory
+  difficulty: Difficulty
+  riskLevel: RiskLevel
+  createdAt: string
+  writtenAnswer: string
+  selfScores: {
+    rubricId: string
+    score: number
+  }[]
+  weaknessTags: string[]
+  usedAudio?: boolean
+  notes?: string
+}
+```
+
+Storage notes:
+- Stored in browser `localStorage` under a frontend key.
+- No account association.
+- No backend or remote persistence.
+- Users can delete individual records or clear all records from this browser.
+- `usedAudio` is a boolean practice flag only; audio blobs/files/URLs are never stored in `PracticeRecord`.
 
 ## Enum values
 

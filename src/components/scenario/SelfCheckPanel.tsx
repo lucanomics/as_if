@@ -1,8 +1,15 @@
-import { useState } from 'react'
 import type { RubricItem } from '../../types/rubric'
 
-export function SelfCheckPanel({ items }: { items: RubricItem[] }) {
-  const [scores, setScores] = useState<Record<string, number>>({})
+type SelfCheckPanelProps = {
+  items: RubricItem[]
+  value?: Record<string, number>
+  onChange?: (scores: Record<string, number>) => void
+}
+
+export function SelfCheckPanel({ items, value = {}, onChange }: SelfCheckPanelProps) {
+  const handleScoreChange = (rubricId: string, score: number) => {
+    onChange?.({ ...value, [rubricId]: score })
+  }
 
   return (
     <section className="rounded-lg border border-[--color-line] bg-[--color-card] p-5 space-y-4">
@@ -14,16 +21,16 @@ export function SelfCheckPanel({ items }: { items: RubricItem[] }) {
           <p className="text-xs text-[--color-text-secondary]">{item.description}</p>
           <p className="text-xs italic text-[--color-text-secondary]">{item.guidingQuestion}</p>
           <div className="flex flex-wrap gap-2">
-            {[1, 2, 3, 4, 5].map((value) => (
-              <label key={value} className="inline-flex items-center gap-1 rounded-md border border-[--color-line] px-2 py-1 text-xs">
+            {[1, 2, 3, 4, 5].map((option) => (
+              <label key={option} className="inline-flex items-center gap-1 rounded-md border border-[--color-line] px-2 py-1 text-xs">
                 <input
                   type="radio"
                   name={`rubric-${item.id}`}
-                  value={value}
-                  checked={scores[item.id] === value}
-                  onChange={() => setScores((prev) => ({ ...prev, [item.id]: value }))}
+                  value={option}
+                  checked={value[item.id] === option}
+                  onChange={() => handleScoreChange(item.id, option)}
                 />
-                {value}
+                {option}
               </label>
             ))}
           </div>
