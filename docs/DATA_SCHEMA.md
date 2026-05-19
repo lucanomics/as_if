@@ -1,6 +1,6 @@
-# Data Schema (Scenario Library + Drill)
+# Data Schema (Scenario Library + Drill + Phrase Bank)
 
-This project currently uses static JSON data for frontend language-practice scenarios and self-check rubrics.
+This project uses static JSON data for frontend language-practice scenarios, phrase bank entries, and self-check rubrics.
 Practice records are stored locally in each browser via `localStorage` (no server sync).
 
 ## Scenario
@@ -24,6 +24,48 @@ interface Scenario {
   riskTags: string[]
   selfCheckRubricIds: string[]
   disclaimerLevel: DisclaimerLevel
+}
+```
+
+## Phrase Bank
+
+```ts
+type SafePhrase = {
+  id: string
+  phrase: string
+  category: PhraseCategory
+  register: PhraseRegister
+  useCase: string
+  whyItWorks: string
+  caution?: string
+  tags: string[]
+}
+
+type DontSayThat = {
+  id: string
+  riskyPhrase: string
+  category: PhraseCategory
+  riskType: PhraseRiskType
+  whyRisky: string
+  saferAlternative: string
+  explanation: string
+  tags: string[]
+}
+
+type ToneShift = {
+  id: string
+  inputMeaning: string
+  category: PhraseCategory
+  versions: {
+    casual?: string
+    polite?: string
+    official?: string
+    assertiveSafe?: string
+    therapeutic?: string
+    academic?: string
+  }
+  notes: string
+  tags: string[]
 }
 ```
 
@@ -64,13 +106,6 @@ type PracticeRecord = {
 }
 ```
 
-Storage notes:
-- Stored in browser `localStorage` under a frontend key.
-- No account association.
-- No backend or remote persistence.
-- Users can delete individual records or clear all records from this browser.
-- `usedAudio` is a boolean practice flag only; audio blobs/files/URLs are never stored in `PracticeRecord`.
-
 ## Enum values
 
 ### `category` (`ScenarioCategory`)
@@ -79,6 +114,32 @@ Storage notes:
 - `medical-counseling`
 - `academic-bureaucratic`
 - `social-survival`
+
+### `phraseCategory` (`PhraseCategory`)
+- `general`
+- `airport-immigration`
+- `police-emergency`
+- `medical-counseling`
+- `academic-bureaucratic`
+- `social-survival`
+
+### `phraseRegister` (`PhraseRegister`)
+- `casual`
+- `polite`
+- `official`
+- `assertive-safe`
+- `therapeutic`
+- `academic`
+
+### `phraseRiskType` (`PhraseRiskType`)
+- `too-vague`
+- `too-defensive`
+- `too-casual`
+- `too-emotional`
+- `too-much-information`
+- `legally-risky`
+- `medically-unclear`
+- `unnatural`
 
 ### `difficulty` (`Difficulty`)
 - `basic`
@@ -99,9 +160,9 @@ Storage notes:
 
 ## Content safety boundaries
 
-- Scenarios and rubric are for **language practice only**.
+- Scenarios and phrase bank content are for **language practice only**.
 - Content must not provide legal, immigration, medical, or mental health advice.
 - Content must not suggest lying, hiding facts, manipulating officials, or evading questions.
-- Safer examples should prioritize clarity, calm tone, asking for clarification, and factual communication.
+- Phrase alternatives must prioritize clarity, truthfulness, calm tone, asking for clarification, and avoiding unnecessary extra information.
 - Content must avoid promises or guarantees of outcomes.
 - Self-check ratings are reflective prompts only; they are not legal, medical, or immigration safety scores.

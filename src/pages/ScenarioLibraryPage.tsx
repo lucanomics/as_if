@@ -7,10 +7,10 @@ export function ScenarioLibraryPage() {
   const { filters, setFilters, filteredScenarios } = useScenarioFilters(allScenarios)
 
   return (
-    <section className="space-y-6">
+    <section className="space-y-5">
       <header className="space-y-2">
         <h1 className="text-3xl font-bold">Scenario Library</h1>
-        <p className="text-[--color-text-secondary]">
+        <p className="text-[--color-text-secondary] leading-6">
           Choose a high-pressure situation and practice the English you actually need.
         </p>
       </header>

@@ -62,8 +62,8 @@ export function ScenarioDetailPage() {
   }
 
   return (
-    <section className="space-y-6">
-      <Link to="/scenarios" className="text-sm font-medium text-[--color-text-secondary] hover:text-[--color-text-primary]">
+    <section className="space-y-6 pb-2">
+      <Link to="/scenarios" className="inline-flex min-h-11 items-center text-sm font-medium text-[--color-text-secondary] hover:text-[--color-text-primary]">
         ← Back to Scenario Library
       </Link>
 
@@ -72,9 +72,9 @@ export function ScenarioDetailPage() {
       <section className="grid gap-4 lg:grid-cols-3">
         <div className="rounded-lg border border-[--color-line] bg-[--color-card] p-5 space-y-2 lg:col-span-2">
           <h3 className="text-lg font-semibold">Situation</h3>
-          <p className="text-sm text-[--color-text-secondary]">{scenario.situation}</p>
+          <p className="text-sm leading-6 text-[--color-text-secondary]">{scenario.situation}</p>
           <h4 className="text-sm font-semibold">Your goal</h4>
-          <p className="text-sm text-[--color-text-secondary]">{scenario.userGoal}</p>
+          <p className="text-sm leading-6 text-[--color-text-secondary]">{scenario.userGoal}</p>
         </div>
         <ContextNotesPanel contextNotes={scenario.contextNotes} />
       </section>
@@ -96,24 +96,24 @@ export function ScenarioDetailPage() {
             type="button"
             disabled={!canSave}
             onClick={handleSavePractice}
-            className="rounded-md border border-[--color-line] px-4 py-2 text-sm font-medium disabled:cursor-not-allowed disabled:opacity-50"
+            className="rounded-md border border-[--color-line] min-h-11 px-4 py-2 text-sm font-medium disabled:cursor-not-allowed disabled:opacity-50"
           >
             Save Practice
           </button>
           {saveMessage ? <p className="text-sm text-emerald-300">{saveMessage}</p> : null}
         </div>
-        <p className="text-xs text-[--color-text-secondary]">Saved records stay only in this browser and are not sent to As If.</p>
+        <p className="text-xs leading-5 text-[--color-text-secondary]">Saved records stay only in this browser and are not sent to As If.</p>
       </section>
 
       {related.length > 0 ? (
-        <section className="rounded-lg border border-[--color-line] bg-[--color-card] p-5 space-y-3">
+        <section className="rounded-lg border border-[--color-line] bg-[--color-card] p-5 space-y-3 overflow-x-hidden">
           <h3 className="text-lg font-semibold">Related scenarios</h3>
           <div className="grid gap-2 md:grid-cols-2">
             {related.map((item) => (
               <Link
                 key={item.id}
                 to={`/scenarios/${item.id}`}
-                className="rounded-md border border-[--color-line] px-3 py-2 text-sm text-[--color-text-secondary] hover:text-[--color-text-primary]"
+                className="rounded-md border border-[--color-line] min-h-11 px-3 py-2 text-sm break-words text-[--color-text-secondary] hover:text-[--color-text-primary]"
               >
                 {item.title}
               </Link>

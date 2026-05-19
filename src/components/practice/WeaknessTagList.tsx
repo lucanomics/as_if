@@ -6,7 +6,7 @@ export function WeaknessTagList({ tags }: { tags: string[] }) {
   return (
     <div className="flex flex-wrap gap-2">
       {tags.map((tag) => (
-        <span key={tag} className="rounded-full border border-rose-700/40 bg-rose-500/10 px-2 py-0.5 text-xs text-rose-300">
+        <span key={tag} className="rounded-full border border-rose-700/40 bg-rose-500/10 px-2 py-1 text-xs text-rose-300 break-words">
           {tag}
         </span>
       ))}
