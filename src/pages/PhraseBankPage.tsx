@@ -1,10 +1,40 @@
+import { PhraseCard } from '../components/phrase/PhraseCard'
+import { PhraseFilters } from '../components/phrase/PhraseFilters'
+import { ToneShiftCard } from '../components/phrase/ToneShiftCard'
+import { usePhraseFilters, type PhraseTab } from '../hooks/usePhraseFilters'
+
+const tabs: Array<{ key: PhraseTab; label: string }> = [
+  { key: 'safe', label: 'Safe Phrases' },
+  { key: 'dont-say-that', label: 'Don’t Say That' },
+  { key: 'tone-shift', label: 'Tone Shift' },
+]
+
 export function PhraseBankPage() {
+  const { filters, setFilters, safePhrases, dontSayThat, toneShifts } = usePhraseFilters()
+  const activeCount = filters.activeTab === 'safe' ? safePhrases.length : filters.activeTab === 'dont-say-that' ? dontSayThat.length : toneShifts.length
+
   return (
     <section className="space-y-4">
-      <h1 className="text-3xl font-bold">PhraseBank</h1>
-      <p className="text-[--color-text-secondary]">Placeholder section for future PhraseBank content.</p>
-      <div className="rounded-lg border border-[--color-line] bg-[--color-card] p-5 text-sm text-[--color-text-secondary]">
-        Static frontend foundation page. No backend or external integrations are included in this setup.
+      <header className="space-y-2">
+        <h1 className="text-3xl font-bold">Phrase Bank</h1>
+        <p className="text-[--color-text-secondary]">Quick access to safer wording, risky expressions to avoid, and tone shifts for high-pressure English.</p>
+        <p className="rounded-lg border border-[--color-line] bg-[--color-card] p-3 text-sm">These examples are for language practice. Adapt them truthfully to your actual situation.</p>
+      </header>
+
+      <nav className="flex flex-wrap gap-2">
+        {tabs.map((tab) => (
+          <button key={tab.key} className={`rounded-md border px-4 py-2 text-sm ${filters.activeTab === tab.key ? 'border-[--color-accent] bg-[--color-accent] text-black' : 'border-[--color-line] bg-[--color-card]'}`} onClick={() => setFilters((prev) => ({ ...prev, activeTab: tab.key }))}>
+            {tab.label}
+          </button>
+        ))}
+      </nav>
+
+      <PhraseFilters filters={filters} onChange={setFilters} resultCount={activeCount} />
+
+      <div className="grid gap-3">
+        {filters.activeTab === 'safe' && safePhrases.map((item) => <PhraseCard key={item.id} type="safe" item={item} />)}
+        {filters.activeTab === 'dont-say-that' && dontSayThat.map((item) => <PhraseCard key={item.id} type="dont-say-that" item={item} />)}
+        {filters.activeTab === 'tone-shift' && toneShifts.map((item) => <ToneShiftCard key={item.id} item={item} />)}
       </div>
     </section>
   )
