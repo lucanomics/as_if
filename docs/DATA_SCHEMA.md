@@ -1,24 +1,61 @@
-# Data Schema (Initial Frontend Draft)
+# Data Schema (Scenario Library)
 
-This project is currently static-only. The schema below is a planning artifact for future implementation.
+This project currently uses static JSON data for frontend language-practice scenarios.
 
 ## Scenario
-- `id`: string
-- `title`: string
-- `category`: string
-- `difficulty`: 'basic' | 'intermediate' | 'advanced'
-- `summary`: string
 
-## Phrase
-- `id`: string
-- `scenarioId`: string
-- `text`: string
-- `translationKo`: string
-- `notes`: string
+```ts
+interface Scenario {
+  id: string
+  title: string
+  category: ScenarioCategory
+  difficulty: Difficulty
+  riskLevel: RiskLevel
+  estimatedMinutes: number
+  situation: string
+  userGoal: string
+  pressureQuestion: string
+  contextNotes: string[]
+  avoidSaying: string[]
+  safePhrases: string[]
+  betterAnswer: string
+  skillFocus: string[]
+  riskTags: string[]
+  selfCheckRubricIds: string[]
+  disclaimerLevel: DisclaimerLevel
+}
+```
 
-## PracticeSession
-- `id`: string
-- `scenarioId`: string
-- `startedAt`: string (ISO timestamp)
-- `completedAt`: string (ISO timestamp)
-- `selfScore`: number (1-5)
+## Enum values
+
+### `category` (`ScenarioCategory`)
+- `airport-immigration`
+- `police-emergency`
+- `medical-counseling`
+- `academic-bureaucratic`
+- `social-survival`
+
+### `difficulty` (`Difficulty`)
+- `basic`
+- `intermediate`
+- `advanced`
+- `hard`
+
+### `riskLevel` (`RiskLevel`)
+- `low`
+- `medium`
+- `high`
+
+### `disclaimerLevel` (`DisclaimerLevel`)
+- `standard`
+- `legal-sensitive`
+- `medical-sensitive`
+- `mental-health-sensitive`
+
+## Content safety boundaries
+
+- Scenarios are for **language practice only**.
+- Scenario text must not provide legal, immigration, medical, or mental health advice.
+- Scenario text must not suggest lying, hiding facts, manipulating officials, or evading questions.
+- Safer answer examples should prioritize clarity, calm tone, asking for clarification, and factual communication.
+- Scenario text must avoid promises or guarantees of outcomes.

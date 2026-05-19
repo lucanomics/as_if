@@ -1,0 +1,21 @@
+[
+  {
+    "id": "social-casual-hangout-invite",
+    "title": "Casual Hangout Invite: Sound Natural",
+    "category": "social-survival",
+    "difficulty": "basic",
+    "riskLevel": "low",
+    "estimatedMinutes": 7,
+    "situation": "A classmate invites you to a casual weekend hangout and you want to respond naturally.",
+    "userGoal": "Accept or decline warmly without sounding too formal or distant.",
+    "pressureQuestion": "Wanna come hang out Saturday?",
+    "contextNotes": ["Language practice only.", "Match friendly tone.", "Give a clear yes or no."],
+    "avoidSaying": ["I shall consider your social proposal.", "No, that activity is inefficient."],
+    "safePhrases": ["Sounds fun, what time are you meeting?", "I can't this week, but thanks for inviting me."],
+    "betterAnswer": "I'm in! What time are you all meeting? If plans change, I'll text you early.",
+    "skillFocus": ["casual register", "friendly boundaries", "natural rhythm"],
+    "riskTags": ["tone-mismatch", "social-anxiety"],
+    "selfCheckRubricIds": ["naturalness-01", "tone-02"],
+    "disclaimerLevel": "standard"
+  }
+]

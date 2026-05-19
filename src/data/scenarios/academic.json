@@ -1,0 +1,40 @@
+[
+  {
+    "id": "academic-grade-concern-meeting",
+    "title": "Professor Meeting: Grade Concern",
+    "category": "academic-bureaucratic",
+    "difficulty": "intermediate",
+    "riskLevel": "medium",
+    "estimatedMinutes": 9,
+    "situation": "You want to discuss a grade and understand the rubric without sounding confrontational.",
+    "userGoal": "Ask specific questions and request guidance for improvement.",
+    "pressureQuestion": "Are you saying my grading was unfair?",
+    "contextNotes": ["Language practice only.", "Focus on learning goals.", "Avoid accusatory phrasing."],
+    "avoidSaying": ["You graded me wrong, fix it now.", "Everyone says your class is unfair."],
+    "safePhrases": ["I want to understand how my argument could be stronger.", "Could we review one rubric category together?"],
+    "betterAnswer": "I appreciate your feedback. I want to improve, so could we look at the evidence section and what a stronger version would include?",
+    "skillFocus": ["polite challenge", "question framing", "academic tone"],
+    "riskTags": ["power-distance", "defensive-reaction-risk"],
+    "selfCheckRubricIds": ["tone-02", "goal-focus-01"],
+    "disclaimerLevel": "standard"
+  },
+  {
+    "id": "bureaucratic-housing-complaint",
+    "title": "Housing Office: File a Complaint Politely",
+    "category": "academic-bureaucratic",
+    "difficulty": "advanced",
+    "riskLevel": "medium",
+    "estimatedMinutes": 10,
+    "situation": "You need to report ongoing maintenance noise and request a formal follow-up.",
+    "userGoal": "State timeline, impact, and requested next steps in professional English.",
+    "pressureQuestion": "What outcome are you requesting from our office?",
+    "contextNotes": ["Language practice only.", "Use calm, documented language.", "Request process details."],
+    "avoidSaying": ["Your office never does anything.", "I'll cause trouble if this continues."],
+    "safePhrases": ["I'd like to file a formal complaint and receive a case number.", "The noise has continued from 11 p.m. to 2 a.m. for four nights."],
+    "betterAnswer": "I'd like to submit a formal complaint about repeated overnight noise in Building C and ask for written follow-up on the next steps.",
+    "skillFocus": ["formal requests", "timeline reporting", "outcome statements"],
+    "riskTags": ["bureaucratic-delay", "frustration-management"],
+    "selfCheckRubricIds": ["structure-02", "professional-register-01"],
+    "disclaimerLevel": "standard"
+  }
+]
