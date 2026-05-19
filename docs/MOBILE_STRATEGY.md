@@ -103,3 +103,16 @@ Use this checklist for manual verification on real iPhone Safari.
 - Audio should remain local-session only unless policy and architecture are explicitly changed.
 - Practice records should remain localStorage-only unless policy and architecture are explicitly changed.
 - Any PWA or iOS packaging must not weaken privacy claims.
+
+## Mobile Safari UX polish pass (2026-05)
+
+Checklist completed in this pass:
+- [x] Increased tappable sizes for key buttons, nav links, and control actions (targeting ~44px minimum where practical).
+- [x] Improved small-screen spacing and typography rhythm for 320–430px widths.
+- [x] Improved top/bottom safe-area handling for iPhone notch/home-indicator devices.
+- [x] Made Scenario Library and Phrase Bank filters easier to use on narrow widths.
+- [x] Increased drill-page readability (pressure question emphasis, textarea comfort, related link tap area).
+- [x] Polished audio recorder controls/status and ensured playback control fits card width.
+- [x] Improved My Practice card wrapping and action button readability on mobile.
+- [x] Reduced risk of horizontal overflow through component-level wrapping/overflow handling.
+

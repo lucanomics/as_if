@@ -18,13 +18,13 @@ export function ScenarioCard({ scenario }: { scenario: Scenario }) {
         <span className="text-xs text-[--color-text-secondary]">{scenario.estimatedMinutes} min</span>
       </div>
 
-      <p className="text-sm text-[--color-text-secondary]">{scenario.situation}</p>
+      <p className="text-sm leading-6 text-[--color-text-secondary] break-words">{scenario.situation}</p>
 
       <div className="space-y-2">
         <p className="text-xs font-semibold uppercase tracking-wide text-[--color-text-secondary]">Skill focus</p>
         <div className="flex flex-wrap gap-2">
           {scenario.skillFocus.map((skill) => (
-            <span key={skill} className="rounded-md border border-[--color-line] px-2 py-1 text-xs text-[--color-text-secondary]">
+            <span key={skill} className="rounded-md border border-[--color-line] px-2 py-1 text-xs text-[--color-text-secondary] break-words">
               {skill}
             </span>
           ))}
@@ -35,7 +35,7 @@ export function ScenarioCard({ scenario }: { scenario: Scenario }) {
         <p className="text-xs font-semibold uppercase tracking-wide text-[--color-text-secondary]">Risk tags</p>
         <div className="flex flex-wrap gap-2">
           {scenario.riskTags.map((tag) => (
-            <span key={tag} className="rounded-md border border-rose-900/50 bg-rose-900/20 px-2 py-1 text-xs text-rose-200">
+            <span key={tag} className="rounded-md border border-rose-900/50 bg-rose-900/20 px-2 py-1 text-xs text-rose-200 break-words">
               {tag}
             </span>
           ))}
@@ -44,7 +44,7 @@ export function ScenarioCard({ scenario }: { scenario: Scenario }) {
 
       <Link
         to={`/scenarios/${scenario.id}`}
-        className="mt-auto rounded-md border border-[--color-line] px-3 py-2 text-center text-sm font-medium text-[--color-text-primary] hover:bg-white/5"
+        className="mt-auto rounded-md border border-[--color-line] min-h-11 px-3 py-2 text-center text-sm font-medium text-[--color-text-primary] hover:bg-white/5"
       >
         View Drill
       </Link>

@@ -14,7 +14,7 @@ export function PracticeRecordCard({ record, onDelete }: { record: PracticeRecor
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
           <p className="text-xs uppercase tracking-wide text-[--color-text-secondary]">{categoryLabelMap[record.category]}</p>
-          <h3 className="text-lg font-semibold">{record.scenarioTitle}</h3>
+          <h3 className="text-lg font-semibold break-words">{record.scenarioTitle}</h3>
           <p className="text-xs text-[--color-text-secondary]">Saved: {new Date(record.createdAt).toLocaleString()}</p>
         </div>
         <div className="flex items-center gap-2">
@@ -23,7 +23,7 @@ export function PracticeRecordCard({ record, onDelete }: { record: PracticeRecor
         </div>
       </div>
 
-      <p className="line-clamp-4 whitespace-pre-wrap text-sm text-[--color-text-secondary]">{record.writtenAnswer}</p>
+      <p className="line-clamp-4 whitespace-pre-wrap break-words text-sm leading-6 text-[--color-text-secondary]">{record.writtenAnswer}</p>
 
       <div className="space-y-1 text-xs text-[--color-text-secondary]">
         <p>Self-check items scored: {record.selfScores.length}</p>
@@ -40,14 +40,14 @@ export function PracticeRecordCard({ record, onDelete }: { record: PracticeRecor
         <WeaknessTagList tags={record.weaknessTags} />
       </div>
 
-      <div className="flex items-center justify-between pt-1">
+      <div className="flex flex-wrap items-center justify-between gap-3 pt-1">
         <Link to={`/scenarios/${record.scenarioId}`} className="text-sm font-medium text-[--color-text-primary] underline">
           Practice again
         </Link>
         <button
           type="button"
           onClick={() => onDelete(record.id)}
-          className="rounded-md border border-[--color-line] px-3 py-1.5 text-xs text-[--color-text-secondary] hover:text-[--color-text-primary]"
+          className="rounded-md border border-[--color-line] min-h-11 px-3 py-2 text-sm text-[--color-text-secondary] hover:text-[--color-text-primary]"
         >
           Delete
         </button>

@@ -8,11 +8,11 @@ interface ScenarioFiltersProps {
 
 export function ScenarioFilters({ filters, onChange }: ScenarioFiltersProps) {
   return (
-    <div className="grid gap-3 rounded-lg border border-[--color-line] bg-[--color-card] p-4 md:grid-cols-3">
-      <label className="space-y-1 text-sm">
+    <div className="grid gap-3 rounded-lg border border-[--color-line] bg-[--color-card] p-4 sm:grid-cols-2 md:grid-cols-3">
+      <label className="space-y-1.5 text-sm">
         <span className="text-[--color-text-secondary]">Category</span>
         <select
-          className="w-full rounded-md border border-[--color-line] bg-[--color-bg] px-3 py-2 text-[--color-text-primary]"
+          className="w-full rounded-md border border-[--color-line] bg-[--color-bg] px-3 py-2.5 text-[--color-text-primary]"
           value={filters.category}
           onChange={(event) => onChange({ ...filters, category: event.target.value as ScenarioFilterState['category'] })}
         >
@@ -25,10 +25,10 @@ export function ScenarioFilters({ filters, onChange }: ScenarioFiltersProps) {
         </select>
       </label>
 
-      <label className="space-y-1 text-sm">
+      <label className="space-y-1.5 text-sm">
         <span className="text-[--color-text-secondary]">Difficulty</span>
         <select
-          className="w-full rounded-md border border-[--color-line] bg-[--color-bg] px-3 py-2 text-[--color-text-primary]"
+          className="w-full rounded-md border border-[--color-line] bg-[--color-bg] px-3 py-2.5 text-[--color-text-primary]"
           value={filters.difficulty}
           onChange={(event) => onChange({ ...filters, difficulty: event.target.value as ScenarioFilterState['difficulty'] })}
         >
@@ -41,10 +41,10 @@ export function ScenarioFilters({ filters, onChange }: ScenarioFiltersProps) {
         </select>
       </label>
 
-      <label className="space-y-1 text-sm">
+      <label className="space-y-1.5 text-sm">
         <span className="text-[--color-text-secondary]">Risk Level</span>
         <select
-          className="w-full rounded-md border border-[--color-line] bg-[--color-bg] px-3 py-2 text-[--color-text-primary]"
+          className="w-full rounded-md border border-[--color-line] bg-[--color-bg] px-3 py-2.5 text-[--color-text-primary]"
           value={filters.riskLevel}
           onChange={(event) => onChange({ ...filters, riskLevel: event.target.value as ScenarioFilterState['riskLevel'] })}
         >

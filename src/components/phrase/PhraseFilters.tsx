@@ -22,16 +22,16 @@ export function PhraseFilters({ filters, onChange, resultCount }: PhraseFiltersP
         value={filters.searchQuery}
         onChange={(event) => onChange({ ...filters, searchQuery: event.target.value })}
         placeholder="Search phrase, safer alternative, tags, notes..."
-        className="w-full rounded-md border border-[--color-line] bg-[--color-bg] px-3 py-3 text-sm"
+        className="w-full rounded-md border border-[--color-line] bg-[--color-bg] px-3 py-3 text-sm min-h-11 leading-6"
       />
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        <select className="rounded-md border border-[--color-line] bg-[--color-bg] px-3 py-3 text-sm" value={filters.category} onChange={(e) => onChange({ ...filters, category: e.target.value as PhraseFilterState['category'] })}>
+        <select className="rounded-md border border-[--color-line] bg-[--color-bg] px-3 py-3 text-sm min-h-11" value={filters.category} onChange={(e) => onChange({ ...filters, category: e.target.value as PhraseFilterState['category'] })}>
           <option value="all">All categories</option>
           {categories.map((value) => <option key={value} value={value}>{phraseCategoryLabels[value]}</option>)}
         </select>
-        {showRegister ? <select className="rounded-md border border-[--color-line] bg-[--color-bg] px-3 py-3 text-sm" value={filters.register} onChange={(e) => onChange({ ...filters, register: e.target.value as PhraseFilterState['register'] })}><option value="all">All registers</option>{registers.map((value) => <option key={value} value={value}>{phraseRegisterLabels[value]}</option>)}</select> : null}
-        {showRiskType ? <select className="rounded-md border border-[--color-line] bg-[--color-bg] px-3 py-3 text-sm" value={filters.riskType} onChange={(e) => onChange({ ...filters, riskType: e.target.value as PhraseFilterState['riskType'] })}><option value="all">All risk types</option>{riskTypes.map((value) => <option key={value} value={value}>{phraseRiskTypeLabels[value]}</option>)}</select> : null}
-        <div className="flex items-center rounded-md border border-[--color-line] px-3 py-3 text-sm text-[--color-text-secondary]">{resultCount} result{resultCount === 1 ? '' : 's'}</div>
+        {showRegister ? <select className="rounded-md border border-[--color-line] bg-[--color-bg] px-3 py-3 text-sm min-h-11" value={filters.register} onChange={(e) => onChange({ ...filters, register: e.target.value as PhraseFilterState['register'] })}><option value="all">All registers</option>{registers.map((value) => <option key={value} value={value}>{phraseRegisterLabels[value]}</option>)}</select> : null}
+        {showRiskType ? <select className="rounded-md border border-[--color-line] bg-[--color-bg] px-3 py-3 text-sm min-h-11" value={filters.riskType} onChange={(e) => onChange({ ...filters, riskType: e.target.value as PhraseFilterState['riskType'] })}><option value="all">All risk types</option>{riskTypes.map((value) => <option key={value} value={value}>{phraseRiskTypeLabels[value]}</option>)}</select> : null}
+        <div className="flex min-h-11 items-center rounded-md border border-[--color-line] px-3 py-3 text-sm min-h-11 text-[--color-text-secondary]">{resultCount} result{resultCount === 1 ? '' : 's'}</div>
       </div>
     </div>
   )

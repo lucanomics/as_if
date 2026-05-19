@@ -15,18 +15,18 @@ export function ToneShiftCard({ item }: ToneShiftCardProps) {
 
   return (
     <article className="space-y-3 rounded-lg border border-[--color-line] bg-[--color-card] p-4">
-      <p className="text-base font-semibold">Input meaning: “{item.inputMeaning}”</p>
+      <p className="text-base font-semibold leading-7 break-words">Input meaning: “{item.inputMeaning}”</p>
       <span className="inline-flex rounded-full border border-[--color-line] px-2.5 py-1 text-xs text-[--color-text-secondary]">
         {phraseCategoryLabels[item.category]}
       </span>
       <div className="space-y-2">
         {entries.map(([label, value]) =>
           value ? (
-            <p key={label} className="text-sm"><span className="font-medium">{label}:</span> {value}</p>
+            <p key={label} className="text-sm leading-6"><span className="font-medium">{label}:</span> {value}</p>
           ) : null,
         )}
       </div>
-      <p className="text-sm"><span className="font-medium">Notes:</span> {item.notes}</p>
+      <p className="text-sm leading-6"><span className="font-medium">Notes:</span> {item.notes}</p>
       <div className="flex flex-wrap gap-2">{item.tags.map((tag) => <span key={tag} className="rounded-full border border-[--color-line] px-2.5 py-1 text-xs text-[--color-text-secondary]">#{tag}</span>)}</div>
     </article>
   )

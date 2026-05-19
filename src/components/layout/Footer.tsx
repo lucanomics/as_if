@@ -1,7 +1,7 @@
 export function Footer() {
   return (
-    <footer className="border-t border-[--color-line] bg-[--color-surface]">
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-2 px-4 py-5 text-xs text-[--color-text-secondary] md:px-6">
+    <footer className="safe-bottom border-t border-[--color-line] bg-[--color-surface]">
+      <div className="mx-auto flex w-full max-w-6xl flex-col gap-2 px-3 py-5 text-xs text-[--color-text-secondary] sm:px-4 md:px-6">
         <p>
           This service is for language practice only. It does not provide legal, immigration, medical, or
           mental health advice. In real situations, users should consult qualified professionals or official
