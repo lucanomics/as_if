@@ -27,3 +27,17 @@ export const riskLevels: RiskLevel[] = ['low', 'medium', 'high']
 export const categoryLabelMap: Record<ScenarioCategory, string> = Object.fromEntries(
   scenarioCategories.map((category) => [category.value, category.label]),
 ) as Record<ScenarioCategory, string>
+
+export function getScenarioById(id: string): Scenario | undefined {
+  return allScenarios.find((scenario) => scenario.id === id)
+}
+
+export function getRelatedScenarios(currentScenarioId: string, limit = 3): Scenario[] {
+  const current = getScenarioById(currentScenarioId)
+
+  if (!current) {
+    return []
+  }
+
+  return allScenarios.filter((scenario) => scenario.id !== currentScenarioId && scenario.category === current.category).slice(0, limit)
+}

@@ -1,6 +1,6 @@
-# Data Schema (Scenario Library)
+# Data Schema (Scenario Library + Drill)
 
-This project currently uses static JSON data for frontend language-practice scenarios.
+This project currently uses static JSON data for frontend language-practice scenarios and self-check rubrics.
 
 ## Scenario
 
@@ -23,6 +23,21 @@ interface Scenario {
   riskTags: string[]
   selfCheckRubricIds: string[]
   disclaimerLevel: DisclaimerLevel
+}
+```
+
+## Self-check rubric
+
+```ts
+type RubricItem = {
+  id: string
+  label: string
+  description: string
+  scale: {
+    min: 1
+    max: 5
+  }
+  guidingQuestion: string
 }
 ```
 
@@ -54,8 +69,9 @@ interface Scenario {
 
 ## Content safety boundaries
 
-- Scenarios are for **language practice only**.
-- Scenario text must not provide legal, immigration, medical, or mental health advice.
-- Scenario text must not suggest lying, hiding facts, manipulating officials, or evading questions.
-- Safer answer examples should prioritize clarity, calm tone, asking for clarification, and factual communication.
-- Scenario text must avoid promises or guarantees of outcomes.
+- Scenarios and rubric are for **language practice only**.
+- Content must not provide legal, immigration, medical, or mental health advice.
+- Content must not suggest lying, hiding facts, manipulating officials, or evading questions.
+- Safer examples should prioritize clarity, calm tone, asking for clarification, and factual communication.
+- Content must avoid promises or guarantees of outcomes.
+- Self-check ratings are reflective prompts only; they are not legal, medical, or immigration safety scores.

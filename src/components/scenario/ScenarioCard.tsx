@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { categoryLabelMap } from '../../lib/scenarioUtils'
 import type { Scenario } from '../../types/scenario'
 import { DifficultyBadge } from './DifficultyBadge'
@@ -41,13 +42,12 @@ export function ScenarioCard({ scenario }: { scenario: Scenario }) {
         </div>
       </div>
 
-      <button
-        type="button"
-        disabled
-        className="mt-auto rounded-md border border-[--color-line] px-3 py-2 text-sm font-medium text-[--color-text-secondary] opacity-70"
+      <Link
+        to={`/scenarios/${scenario.id}`}
+        className="mt-auto rounded-md border border-[--color-line] px-3 py-2 text-center text-sm font-medium text-[--color-text-primary] hover:bg-white/5"
       >
-        View Drill · coming next
-      </button>
+        View Drill
+      </Link>
     </article>
   )
 }

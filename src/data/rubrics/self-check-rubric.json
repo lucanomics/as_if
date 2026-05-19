@@ -1,0 +1,51 @@
+[
+  {
+    "id": "accuracy",
+    "label": "Accuracy",
+    "description": "Checks whether your answer is truthful and grounded in what you know.",
+    "scale": { "min": 1, "max": 5 },
+    "guidingQuestion": "Did I avoid guessing or inventing details?"
+  },
+  {
+    "id": "conciseness",
+    "label": "Conciseness",
+    "description": "Checks whether your answer gives enough information without overexplaining.",
+    "scale": { "min": 1, "max": 5 },
+    "guidingQuestion": "Did I answer directly without adding unnecessary details?"
+  },
+  {
+    "id": "tone",
+    "label": "Tone",
+    "description": "Checks whether your answer sounds calm, respectful, and appropriate for the situation.",
+    "scale": { "min": 1, "max": 5 },
+    "guidingQuestion": "Did I avoid sounding defensive, casual, or emotional in the wrong setting?"
+  },
+  {
+    "id": "clarification",
+    "label": "Clarification",
+    "description": "Checks whether you asked for clarification when the question was unclear.",
+    "scale": { "min": 1, "max": 5 },
+    "guidingQuestion": "Did I ask for clarification instead of guessing?"
+  },
+  {
+    "id": "no-unnecessary-info",
+    "label": "No Unnecessary Information",
+    "description": "Checks whether you avoided volunteering information that was not asked for.",
+    "scale": { "min": 1, "max": 5 },
+    "guidingQuestion": "Did I avoid giving extra details that could confuse the situation?"
+  },
+  {
+    "id": "situation-fit",
+    "label": "Situation Fit",
+    "description": "Checks whether your wording fits the setting and level of formality.",
+    "scale": { "min": 1, "max": 5 },
+    "guidingQuestion": "Does my answer match the seriousness of the situation?"
+  },
+  {
+    "id": "safe-phrasing",
+    "label": "Safe Phrasing",
+    "description": "Checks whether you used clear, careful, and non-escalating language.",
+    "scale": { "min": 1, "max": 5 },
+    "guidingQuestion": "Did I use wording that is clear without sounding evasive or confrontational?"
+  }
+]
