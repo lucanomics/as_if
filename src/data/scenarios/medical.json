@@ -1,0 +1,40 @@
+[
+  {
+    "id": "medical-clinic-pain-description",
+    "title": "Clinic Intake: Describe Pain Clearly",
+    "category": "medical-counseling",
+    "difficulty": "basic",
+    "riskLevel": "medium",
+    "estimatedMinutes": 8,
+    "situation": "At a clinic check-in, you need to explain pain location, duration, and intensity.",
+    "userGoal": "Use simple symptom language and ask follow-up questions when you are unsure.",
+    "pressureQuestion": "How long has this pain lasted and where is it strongest?",
+    "contextNotes": ["Language practice only, not medical advice.", "Use numbers and body-location words.", "Say when you are uncertain."],
+    "avoidSaying": ["It's everywhere, I guess.", "Just fix me quickly."],
+    "safePhrases": ["The pain started yesterday evening.", "It's strongest on the lower right side."],
+    "betterAnswer": "The pain started about 12 hours ago. It's sharp on my lower right side, around 7 out of 10 right now.",
+    "skillFocus": ["symptom vocabulary", "time expressions", "self-advocacy"],
+    "riskTags": ["health-anxiety", "miscommunication-risk"],
+    "selfCheckRubricIds": ["clarity-01", "specificity-02"],
+    "disclaimerLevel": "medical-sensitive"
+  },
+  {
+    "id": "counseling-intake-panic-symptoms",
+    "title": "Counseling Intake: Explain Panic Symptoms",
+    "category": "medical-counseling",
+    "difficulty": "hard",
+    "riskLevel": "high",
+    "estimatedMinutes": 13,
+    "situation": "During first counseling intake, you need to describe panic episodes and communication needs.",
+    "userGoal": "Describe symptoms and boundaries clearly without self-judgment.",
+    "pressureQuestion": "What happens in your body when panic starts?",
+    "contextNotes": ["Language practice only, not mental health treatment.", "Use grounded, factual descriptions.", "Request slower pace if overwhelmed."],
+    "avoidSaying": ["I am broken forever.", "Nothing helps so don't ask."],
+    "safePhrases": ["My chest feels tight and my breathing gets fast.", "Could we slow down for a moment so I can explain clearly?"],
+    "betterAnswer": "When it starts, my heart races, my hands shake, and I feel dizzy for about ten minutes. Speaking slowly helps me stay focused.",
+    "skillFocus": ["body-symptom language", "boundary setting", "paced communication"],
+    "riskTags": ["mental-health-pressure", "self-expression-difficulty"],
+    "selfCheckRubricIds": ["self-advocacy-01", "composure-01"],
+    "disclaimerLevel": "mental-health-sensitive"
+  }
+]

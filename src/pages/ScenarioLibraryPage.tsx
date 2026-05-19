@@ -1,10 +1,28 @@
+import { ScenarioCard } from '../components/scenario/ScenarioCard'
+import { ScenarioFilters } from '../components/scenario/ScenarioFilters'
+import { useScenarioFilters } from '../hooks/useScenarioFilters'
+import { allScenarios } from '../lib/scenarioUtils'
+
 export function ScenarioLibraryPage() {
+  const { filters, setFilters, filteredScenarios } = useScenarioFilters(allScenarios)
+
   return (
-    <section className="space-y-4">
-      <h1 className="text-3xl font-bold">ScenarioLibrary</h1>
-      <p className="text-[--color-text-secondary]">Placeholder section for future ScenarioLibrary content.</p>
-      <div className="rounded-lg border border-[--color-line] bg-[--color-card] p-5 text-sm text-[--color-text-secondary]">
-        Static frontend foundation page. No backend or external integrations are included in this setup.
+    <section className="space-y-6">
+      <header className="space-y-2">
+        <h1 className="text-3xl font-bold">Scenario Library</h1>
+        <p className="text-[--color-text-secondary]">
+          Choose a high-pressure situation and practice the English you actually need.
+        </p>
+      </header>
+
+      <ScenarioFilters filters={filters} onChange={setFilters} />
+
+      <p className="text-sm text-[--color-text-secondary]">{filteredScenarios.length} scenarios found</p>
+
+      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        {filteredScenarios.map((scenario) => (
+          <ScenarioCard key={scenario.id} scenario={scenario} />
+        ))}
       </div>
     </section>
   )

@@ -4,6 +4,7 @@ import { AboutPage } from '../pages/AboutPage'
 import { HomePage } from '../pages/HomePage'
 import { MyPracticePage } from '../pages/MyPracticePage'
 import { PhraseBankPage } from '../pages/PhraseBankPage'
+import { ScenarioDetailPage } from '../pages/ScenarioDetailPage'
 import { ScenarioLibraryPage } from '../pages/ScenarioLibraryPage'
 
 export const router = createBrowserRouter([
@@ -13,6 +14,7 @@ export const router = createBrowserRouter([
     children: [
       { index: true, element: <HomePage /> },
       { path: 'scenarios', element: <ScenarioLibraryPage /> },
+      { path: 'scenarios/:scenarioId', element: <ScenarioDetailPage /> },
       { path: 'phrases', element: <PhraseBankPage /> },
       { path: 'practice', element: <MyPracticePage /> },
       { path: 'about', element: <AboutPage /> },
