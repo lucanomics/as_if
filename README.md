@@ -2,6 +2,11 @@
 
 As If is a web-based English practice app for high-pressure real-life situations such as immigration interviews, secondary inspection, police stops, hospital visits, counseling, university administration, and bureaucratic complaints.
 
+
+## Product Direction
+
+As If is web-first by design in the near term: mobile-first web UX first (especially iPhone Safari), then PWA readiness, then optional iOS wrapper evaluation only after validation. Native iOS is explicitly deferred unless evidence shows web/PWA is insufficient.
+
 ## Scope
 
 - Static frontend foundation only
