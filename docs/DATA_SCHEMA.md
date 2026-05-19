@@ -59,6 +59,7 @@ type PracticeRecord = {
     score: number
   }[]
   weaknessTags: string[]
+  usedAudio?: boolean
   notes?: string
 }
 ```
@@ -68,6 +69,7 @@ Storage notes:
 - No account association.
 - No backend or remote persistence.
 - Users can delete individual records or clear all records from this browser.
+- `usedAudio` is a boolean practice flag only; audio blobs/files/URLs are never stored in `PracticeRecord`.
 
 ## Enum values
 

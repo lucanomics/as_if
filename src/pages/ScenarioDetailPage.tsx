@@ -5,6 +5,7 @@ import { usePracticeRecords } from '../hooks/usePracticeRecords'
 import { getRelatedScenarios, getScenarioById } from '../lib/scenarioUtils'
 import type { RubricItem } from '../types/rubric'
 import { AnswerInput } from '../components/scenario/AnswerInput'
+import { AudioRecorder } from '../components/audio/AudioRecorder'
 import { BetterAnswerPanel } from '../components/scenario/BetterAnswerPanel'
 import { ContextNotesPanel } from '../components/scenario/ContextNotesPanel'
 import { DontSayThatPanel } from '../components/scenario/DontSayThatPanel'
@@ -22,6 +23,7 @@ export function ScenarioDetailPage() {
   const [answer, setAnswer] = useState('')
   const [scores, setScores] = useState<Record<string, number>>({})
   const [saveMessage, setSaveMessage] = useState('')
+  const [usedAudio, setUsedAudio] = useState(false)
 
   if (!scenario) {
     return (
@@ -53,6 +55,7 @@ export function ScenarioDetailPage() {
       writtenAnswer: answer,
       selfScores,
       weaknessTags,
+      usedAudio,
     })
 
     setSaveMessage('Practice saved locally.')
@@ -78,6 +81,7 @@ export function ScenarioDetailPage() {
 
       <DrillQuestion question={scenario.pressureQuestion} />
       <AnswerInput value={answer} onChange={setAnswer} />
+      <AudioRecorder onRecordingAvailable={setUsedAudio} />
 
       <section className="grid gap-4 lg:grid-cols-3">
         <SafePhrasePanel safePhrases={scenario.safePhrases} />

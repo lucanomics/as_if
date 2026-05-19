@@ -31,6 +31,11 @@ export function PracticeRecordCard({ record, onDelete }: { record: PracticeRecor
       </div>
 
       <div className="space-y-2">
+
+      {record.usedAudio ? (
+        <p className="text-xs text-[--color-text-secondary]">Audio practiced</p>
+      ) : null}
+
         <p className="text-xs font-semibold uppercase tracking-wide text-[--color-text-secondary]">Weakness tags</p>
         <WeaknessTagList tags={record.weaknessTags} />
       </div>

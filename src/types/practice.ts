@@ -14,5 +14,6 @@ export type PracticeRecord = {
     score: number
   }[]
   weaknessTags: string[]
+  usedAudio?: boolean
   notes?: string
 }
