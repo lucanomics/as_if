@@ -1,15 +1,9 @@
-import { useMemo, useState } from 'react';
-import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import { useState } from 'react';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { PhraseCard } from '../components/PhraseCard';
+import { ToneShiftCard } from '../components/ToneShiftCard';
 import { avoidPhrases, safePhrases, toneShifts } from '../data/phrases';
-import { colors } from '../theme/colors';
-import { spacing } from '../theme/spacing';
-
-type Segment = 'safe' | 'avoid' | 'tone';
-export function PhrasesScreen() {
-  const [segment, setSegment] = useState<Segment>('safe');
-  const [query, setQuery] = useState('');
-  const safeFiltered = useMemo(() => safePhrases.filter((p) => p.toLowerCase().includes(query.toLowerCase())), [query]);
-  return <View><View style={styles.segmentRow}>{(['safe', 'avoid', 'tone'] as Segment[]).map((s) => <Pressable key={s} style={[styles.segment, segment === s && styles.active]} onPress={() => setSegment(s)}><Text style={styles.segText}>{s.toUpperCase()}</Text></Pressable>)}</View><TextInput placeholder='Filter phrases (optional)' placeholderTextColor={colors.textSecondary} value={query} onChangeText={setQuery} style={styles.input} />{segment === 'safe' && safeFiltered.map((item) => <PhraseCard key={item} title='Safe Phrase' body={item} tone='safe' />)}{segment === 'avoid' && avoidPhrases.map((item) => <PhraseCard key={item} title="Don't Say That" body={item} tone='danger' />)}{segment === 'tone' && toneShifts.map((item) => <PhraseCard key={item.from} title='Tone Shift' body={`${item.from} → ${item.to}`} />)}</View>;
-}
-const styles = StyleSheet.create({ segmentRow: { flexDirection: 'row', marginBottom: spacing.sm }, segment: { backgroundColor: colors.card, paddingVertical: spacing.sm, paddingHorizontal: spacing.md, borderRadius: 10, marginRight: spacing.xs }, active: { borderWidth: 1, borderColor: colors.steelBlue }, segText: { color: colors.textPrimary, fontWeight: '700', fontSize: 12 }, input: { backgroundColor: colors.surface, color: colors.textPrimary, borderRadius: 10, padding: spacing.sm, marginBottom: spacing.md } });
+import { colors, radii, spacing, type } from '../theme';
+type Segment='safe'|'avoid'|'tone';
+export function PhrasesScreen(){const [segment,setSegment]=useState<Segment>('safe');return <View><Text style={styles.header}>PHRASE BANK</Text><Text style={styles.title}>Phrases you can keep ready.</Text><View style={styles.row}>{(['safe','avoid','tone'] as Segment[]).map((s)=><Pressable key={s} onPress={()=>setSegment(s)} style={[styles.seg,segment===s&&styles.active]}><Text style={[styles.segText,segment===s&&styles.activeText]}>{s.toUpperCase()}</Text></Pressable>)}</View>{segment==='safe'&&safePhrases.slice(0,4).map((item)=><PhraseCard key={item} title='SAFE' body={item} detail='Direct phrasing that stays respectful under pressure.' tone='safe'/>)}{segment==='avoid'&&avoidPhrases.slice(0,3).map((item)=><PhraseCard key={item} title="DON'T SAY" body={item} detail='TRY INSTEAD: I want to answer clearly and accurately.' tone='danger'/>)}{segment==='tone'&&toneShifts.map((t)=><ToneShiftCard key={t.from} from={t.from} to={t.to} />)}</View>}
+const styles=StyleSheet.create({header:{...type.caption,color:colors.textSecondary},title:{...type.h2,marginTop:spacing.sm},row:{flexDirection:'row',marginVertical:spacing.md,gap:spacing.sm},seg:{backgroundColor:colors.card,paddingVertical:spacing.sm,paddingHorizontal:spacing.md,borderRadius:radii.pill,borderWidth:1,borderColor:colors.borderSubtle},active:{backgroundColor:colors.elevatedCard,borderColor:colors.border},segText:{...type.caption,color:colors.textMuted},activeText:{color:colors.textPrimary}})
