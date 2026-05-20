@@ -1,0 +1,27 @@
+{
+  "expo": {
+    "name": "As If Prototype",
+    "slug": "as-if-prototype",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#0E0F11"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": false
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#0E0F11"
+      }
+    },
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}
