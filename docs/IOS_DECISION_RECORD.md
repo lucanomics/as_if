@@ -44,3 +44,6 @@ Proceed with:
 ## Revisit Triggers
 
 Revisit this decision only after evidence exists that web/PWA constraints materially harm retention or core practice outcomes.
+
+
+- **2026-05-20 update:** A separate Expo prototype now exists under `mobile-prototype/` for native-feel UX exploration only. This does **not** change the web-first production decision in this record.

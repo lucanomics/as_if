@@ -116,3 +116,12 @@ Checklist completed in this pass:
 - [x] Improved My Practice card wrapping and action button readability on mobile.
 - [x] Reduced risk of horizontal overflow through component-level wrapping/overflow handling.
 
+
+
+## Expo prototype boundary
+
+- The Expo app in `mobile-prototype/` is a prototype.
+- It should not become the main app without a separate go/no-go decision.
+- The web app remains the source of truth for production functionality.
+- The prototype exists to explore native mobile UX patterns.
+- A later Claude Design pass may refine the visual direction.
